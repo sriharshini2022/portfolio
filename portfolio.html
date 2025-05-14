@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>Harshini's Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#a855f7'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f9fafb;
+}
+.skill-bar {
+height: 8px;
+border-radius: 4px;
+background-color: #e5e7eb;
+overflow: hidden;
+}
+.skill-progress {
+height: 100%;
+border-radius: 4px;
+background: linear-gradient(90deg, #6366f1, #a855f7);
+}
+</style>
+</head>
+<body class="text-gray-800">
+<!-- Navigation Bar -->
+<nav class="fixed top-0 w-full bg-white shadow-md z-50 px-4 py-3 flex justify-between items-center">
+<div class="font-['Pacifico'] text-xl text-primary">Portfolio</div>
+<div class="flex space-x-2">
+<button id="menuToggle" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 cursor-pointer">
+<i class="ri-menu-line text-gray-600"></i>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobileMenu" class="fixed top-14 right-4 bg-white shadow-lg rounded-md w-48 z-50 hidden">
+<ul class="py-2">
+<li class="px-4 py-2 hover:bg-gray-100 cursor-pointer"><a href="#about">About</a></li>
+<li class="px-4 py-2 hover:bg-gray-100 cursor-pointer"><a href="#education">Education</a></li>
+<li class="px-4 py-2 hover:bg-gray-100 cursor-pointer"><a href="#skills">Skills</a></li>
+<li class="px-4 py-2 hover:bg-gray-100 cursor-pointer"><a href="#projects">Projects</a></li>
+
+</ul>
+</div>
+<main class="pt-16 pb-20">
+<!-- Hero Section -->
+<section id="about" class="px-4 py-8">
+<div class="flex flex-col items-center">
+<div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-primary">
+<img src="https://static.readdy.ai/image/6800306bd19cbd9c07fdf75dbb2137a8/65c032fa1c874c5a06f8b840a0eadafd.jpeg" alt="Profile Photo" class="w-full h-full object-cover">
+</div>
+<h1 class="text-2xl font-bold text-center">VALLABHAJOSYULA SRI HARSHINI</h1>
+<p class="text-center text-gray-600 mt-2">AI/ML Student & Enthusiast</p>
+<div> <class="flex items-center text-sm text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+
+</div>
+<div class="flex items-center text-sm text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+Visakhapatnam, AP
+</div>
+<div class="flex items-center text-sm text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-mail-line"></i>
+</div>
+sri.harshini2725@gmail.com
+</div>
+</div>
+<div class="flex gap-4 mt-5">
+<a href="https://www.linkedin.com/in/vallabhajosyula-sri-harshini-a822ab283/" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 cursor-pointer">
+<i class="ri-linkedin-fill text-lg"></i>
+</a>
+<a href="https://github.com/sriharshini2022" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer">
+<i class="ri-github-fill text-lg"></i>
+</a>
+<a href="https://medium.com/@VALLABHAJOSYULASRIHARSHINI" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 cursor-pointer">
+<i class="ri-medium-fill text-lg"></i>
+</a>
+</div>
+
+</section>
+<!-- About Me Section -->
+<section class="px-4 py-8 bg-white shadow-sm rounded-lg mx-4 mt-4">
+<h2 class="text-xl font-semibold mb-4">About Me</h2>
+<p class="text-gray-700 leading-relaxed">
+    🚀 Decoding the Future with AI/ML
+I'm an AI & ML enthusiast from Vignan College, graduating in 2026, on a mission to shape the future of tech. With hands-on experience through internships and leadership in the Artificial Intelligence Pioneers of Tomorrow club, I'm blending technical skills with a passion for solving real-world problems.
+What sets me apart?
+🧠 I’ve led cross-functional teams on AI-driven projects focused on social impact.
+🤖 I’ve built models using machine learning and data analysis to extract insights and drive smarter decisions.
+🤝 Teamwork fuels me—I love bringing people and ideas together to make things happen.
+Challenges aren't roadblocks—they’re launchpads. Whether it's mastering a new tool or debugging a tricky algorithm, I thrive on pushing boundaries.
+Let’s build the future together. If you're passionate about innovation, AI, or collaborative problem-solving—let’s connect!
+#FutureTechLeader #AIEnthusiast #LearningJourneys
+</p>
+
+</section>
+<!-- Education Section -->
+<section id="education" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-graduation-cap-fill"></i>
+</div>
+Education
+</h2>
+<div class="space-y-6">
+<!-- B.Tech Education -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Bachelor of Technology in Computer Science</h3>
+<p class="text-gray-600 text-sm mt-1">Vignan's Institute of Engineering for Women</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">Expected 2026</span>
+</div>
+</div>
+<div class="mt-3">
+<p class="text-sm text-gray-700"><span class="font-medium">Specialization:</span> Artificial Intelligence and Machine Learning</p>
+<p class="text-sm text-gray-700 mt-1"><span class="font-medium">CGPA:</span> 8.17</p>
+</div>
+<div class="mt-3">
+<p class="text-xs text-gray-500">Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing</p>
+</div>
+</div>
+<!-- Intermediate Education -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Intermediate, MPC</h3>
+<p class="text-gray-600 text-sm mt-1">Ascent Junior College</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded-full">2020-2022</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-sm text-gray-700"><span class="font-medium">CGPA:</span> 8.11</p>
+</div>
+</div>
+<!-- SSC Education -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">SSC</h3>
+<p class="text-gray-600 text-sm mt-1">Sri Chaitanya E.M School</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded-full">2020</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-sm text-gray-700"><span class="font-medium">CGPA:</span> 10.0</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Internship Section -->
+<section id="internships" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-briefcase-fill"></i>
+</div>
+Internship Experience
+</h2>
+<div class="space-y-5">
+<!-- NSTL Internship -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">ML Internship</h3>
+<p class="text-gray-600 text-sm mt-1">Naval Science and Technological Laboratory (NSTL)</p>
+<p class="text-xs text-gray-500 mt-1 flex items-center">
+<i class="ri-map-pin-line mr-1"></i>
+Visakhapatnam
+</p>
+</div>
+<span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full">Present</span>
+</div>
+<div class="mt-3">
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Develop object detection models using YOLO on COCO and PASCAL VOC datasets</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Research and benchmark state-of-the-art detection techniques</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Edunet Internship -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">AI Internship</h3>
+<p class="text-gray-600 text-sm mt-1">Edunet</p>
+<p class="text-xs text-gray-500 mt-1 flex items-center">
+<i class="ri-global-line mr-1"></i>
+Remote
+</p>
+</div>
+<span class="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded-full">Jan 2025</span>
+</div>
+<div class="mt-3">
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Executed image generation workflows using stable diffusion and ComfyUI</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Published technical articles explaining U-Net and diffusion models</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- ExcelR Internship -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">AI/ML Internship</h3>
+<p class="text-gray-600 text-sm mt-1">ExcelR</p>
+</div>
+<span class="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded-full">June - July 2024</span>
+</div>
+<div class="mt-3">
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Mastered core concepts in AI</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-fill"></i>
+</div>
+Skills
+</h2>
+<div class="space-y-6">
+<!-- Technical Skills -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<h3 class="font-medium text-primary mb-3">Technical Skills</h3>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<p class="text-sm font-medium mb-1">Power BI</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">NLP</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 80%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">NumPy</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">Pandas</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">Streamlit</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 75%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">OpenCV</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 70%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Frameworks -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<h3 class="font-medium text-primary mb-3">Frameworks</h3>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<p class="text-sm font-medium mb-1">TensorFlow</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 80%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">Scikit-learn</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">Flask</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 65%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Languages -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<h3 class="font-medium text-primary mb-3">Languages</h3>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<p class="text-sm font-medium mb-1">Python</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium mb-1">Java</p>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cybersecurity -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<h3 class="font-medium text-primary mb-3">Cybersecurity</h3>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Nmap Commands</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Kali Linux</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Burp Suite</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Metasploit Framework</span>
+</div>
+</div>
+<!-- Soft Skills -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<h3 class="font-medium text-primary mb-3">Soft Skills</h3>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Communication</span>
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Leadership</span>
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Team Work</span>
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Adaptability</span>
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Problem Solving</span>
+<span class="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Critical Thinking</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Certifications Section -->
+<section id="certifications" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-award-fill"></i>
+</div>
+Certifications
+</h2>
+<div class="space-y-4">
+<!-- NPTEL AI Certificate -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">AI– Search Methods for Problem Solving</h3>
+<p class="text-sm text-gray-600 mt-1">NPTEL</p>
+</div>
+<span class="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">Elite Certificate</span>
+</div>
+</div>
+<!-- NPTEL Database Certificate -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Database Management Systems</h3>
+<p class="text-sm text-gray-600 mt-1">NPTEL</p>
+<p class="text-xs text-gray-500 mt-1">Learned Structured Query Language</p>
+</div>
+</div>
+</div>
+<!-- EDX Certificate -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Python and Pandas for Data Engineering</h3>
+<p class="text-sm text-gray-600 mt-1">EDX</p>
+</div>
+</div>
+</div>
+<!-- IIRS Certificate -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">AI/ML for Geodata Analysis</h3>
+<p class="text-sm text-gray-600 mt-1">IIRS</p>
+</div>
+</div>
+</div>
+<!-- HackerRank Certificates -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">HackerRank Certifications</h3>
+<p class="text-sm text-gray-600 mt-1">HackerRank</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Java (Basic)</span>
+<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">SQL (Basic)</span>
+<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">SQL (Intermediate)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Infosys Certificate -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">HTML Foundations</h3>
+<p class="text-sm text-gray-600 mt-1">Infosys Springboard</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Extra-Curricular Activities Section -->
+<section id="activities" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-group-fill"></i>
+</div>
+Extra-Curricular Activities
+</h2>
+<div class="space-y-4">
+<!-- AI Club Leadership -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">AI Club (AIPT) Lead</h3>
+<p class="text-sm text-gray-600 mt-1">2025–2026</p>
+<ul class="mt-2 space-y-2">
+<li class="text-sm text-gray-700 flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Spearheaded technical workshops and mentored junior members</span>
+</li>
+<li class="text-sm text-gray-700 flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Led strategic planning and club initiatives</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Technical Writing -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Technical Writing</h3>
+<p class="text-sm text-gray-600 mt-1">Medium Platform</p>
+<p class="text-sm text-gray-700 mt-2">
+Authored comprehensive technical articles focusing on AI/ML topics and emerging technologies
+</p>
+</div>
+</div>
+</div>
+<!-- Hackathon Organization -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Hackathon Organizer</h3>
+<p class="text-sm text-gray-600 mt-1">GDG Collaboration</p>
+<p class="text-sm text-gray-700 mt-2">
+Coordinated and executed an AI-focused hackathon, managing logistics and participant engagement
+</p>
+</div>
+</div>
+</div>
+<!-- Study Jams -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Study Jam Participation</h3>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2× GDSC Study Jam</span>
+<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">1× GDG Study Jam</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cybersecurity Workshops -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-medium">Cybersecurity Training</h3>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">10-day Intensive Workshop</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">2-day Workshop</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="px-4 py-8 mt-4">
+<h2 class="text-xl font-semibold mb-6 flex items-center">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-code-box-fill"></i>
+</div>
+Projects
+</h2>
+<div class="space-y-5">
+<!-- Project 1 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex items-start justify-between">
+<h3 class="font-medium">Image Generation with Stable Diffusion</h3>
+<span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full">Remote</span>
+</div>
+<p class="text-sm text-gray-600 mt-2">
+Constructed advanced generation pipelines using Hugging Face models and optimized diffusion stages for improved image clarity and resolution.
+</p>
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">ComfyUI</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Stable Diffusion</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Hugging Face</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Python</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex items-start justify-between">
+<h3 class="font-medium">Crime Data Analysis and Visualization</h3>
+<span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full">Completed</span>
+</div>
+<p class="text-sm text-gray-600 mt-2">
+Engineered interactive dashboards to analyze crime statistics by region and time, featuring heatmaps, line charts, and demographic visuals.
+</p>
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Power BI</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Data Analysis</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Visualization</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Statistics</span>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex items-start justify-between">
+<h3 class="font-medium">Exploratory Data Analysis of Cybersecurity Breaches</h3>
+<span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full">Completed</span>
+</div>
+<p class="text-sm text-gray-600 mt-2">
+Conducted in-depth analysis of cybersecurity breaches using Python libraries, identifying trends and generating visual summaries for executive insights.
+</p>
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Python</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Pandas</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Matplotlib</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Data Analysis</span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex items-start justify-between">
+<h3 class="font-medium">AUTOCODER X – AI Coding Assistant</h3>
+<span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full">Completed</span>
+</div>
+<p class="text-sm text-gray-600 mt-2">
+Designed an intelligent coding assistant using Streamlit and Gemini AI, featuring OCR text extraction and multilingual response capabilities.
+</p>
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Streamlit</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Gemini AI</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">OCR</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">Python</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="border border-primary text-primary px-4 py-2 rounded-button font-medium hover:bg-primary/5 transition cursor-pointer">
+View All Projects
+</button>
+</div>
+</section>
+
+<!-- Bottom Tab Bar -->
+<nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 px-2 py-2 flex justify-between items-center">
+<a href="#about" class="w-1/8 flex flex-col items-center text-primary cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-3-fill"></i>
+</div>
+<span class="text-xs mt-1">About</span>
+</a>
+<a href="#education" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-graduation-cap-line"></i>
+</div>
+<span class="text-xs mt-1">Education</span>
+</a>
+<a href="#internships" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-briefcase-line"></i>
+</div>
+<span class="text-xs mt-1">Internships</span>
+</a>
+<a href="#skills" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-tools-line"></i>
+</div>
+<span class="text-xs mt-1">Skills</span>
+</a>
+<a href="#certifications" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-award-line"></i>
+</div>
+<span class="text-xs mt-1">Certificates</span>
+</a>
+<a href="#activities" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-group-line"></i>
+</div>
+<span class="text-xs mt-1">Activities</span>
+</a>
+<a href="#projects" class="w-1/8 flex flex-col items-center text-gray-500 cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-code-box-line"></i>
+</div>
+<span class="text-xs mt-1">Projects</span>
+</a>
+
+</nav>
+<!-- Back to top button -->
+<button id="backToTop" class="fixed bottom-20 right-4 bg-primary text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center opacity-0 transition-opacity duration-300 cursor-pointer">
+<i class="ri-arrow-up-line"></i>
+</button>
+<!-- Success Message Modal (Hidden by default) -->
+<div id="successModal" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 hidden">
+<div class="bg-white rounded-lg p-6 w-4/5 max-w-sm">
+<div class="text-center">
+<div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+<i class="ri-check-line text-green-500 text-3xl"></i>
+</div>
+<h3 class="text-lg font-medium text-gray-900 mb-2">Message Sent!</h3>
+<p class="text-gray-600 mb-5">Thank you for reaching out. I'll get back to you soon.</p>
+<button id="closeModal" class="w-full bg-primary text-white px-4 py-2 rounded-button cursor-pointer">
+Close
+</button>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+menuToggle.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+mobileMenu.classList.add('hidden');
+}
+});
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+mobileMenu.classList.add('hidden');
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 60,
+behavior: 'smooth'
+});
+// Update active tab
+document.querySelectorAll('nav a').forEach(link => {
+if (link.getAttribute('href') === targetId) {
+link.classList.add('text-primary');
+link.classList.remove('text-gray-500');
+} else {
+link.classList.remove('text-primary');
+link.classList.add('text-gray-500');
+}
+});
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0');
+backToTopButton.classList.add('opacity-100');
+} else {
+backToTopButton.classList.remove('opacity-100');
+backToTopButton.classList.add('opacity-0');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Contact form submission
+const contactForm = document.getElementById('contactForm');
+const successModal = document.getElementById('successModal');
+const closeModal = document.getElementById('closeModal');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Form validation
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const message = document.getElementById('message').value;
+if (!name || !email || !message) {
+// You could add more sophisticated validation here
+return;
+}
+// Show success message
+successModal.classList.remove('hidden');
+// Reset form
+contactForm.reset();
+});
+closeModal.addEventListener('click', function() {
+successModal.classList.add('hidden');
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Highlight active section on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+window.addEventListener('scroll', function() {
+let current = '';
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 80;
+const sectionHeight = section.offsetHeight;
+if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+current = '#' + section.getAttribute('id');
+}
+});
+navLinks.forEach(link => {
+link.classList.remove('text-primary');
+link.classList.add('text-gray-500');
+if (link.getAttribute('href') === current) {
+link.classList.remove('text-gray-500');
+link.classList.add('text-primary');
+}
+});
+});
+});
+</script>
+</body>
+</html>
+  
