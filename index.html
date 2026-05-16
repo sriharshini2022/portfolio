@@ -26,13 +26,11 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;overflow-x:hidden;cursor:none}
 
-/* ── SCANLINES ── */
 body::after{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);
 }
 
-/* ── GRID BG ── */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:
@@ -41,7 +39,6 @@ body::before{
   background-size:40px 40px;
 }
 
-/* ── CURSOR ── */
 .cur{position:fixed;width:4px;height:20px;background:var(--teal);pointer-events:none;z-index:9999;animation:blink 1s step-end infinite;transform:translate(-50%,-50%)}
 .cur-cross{position:fixed;width:24px;height:24px;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
 .cur-cross::before,.cur-cross::after{content:'';position:absolute;background:var(--teal);opacity:0.6}
@@ -49,7 +46,6 @@ body::before{
 .cur-cross::after{height:1px;width:100%;top:50%;transform:translateY(-50%)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
-/* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
@@ -82,7 +78,6 @@ nav{
   position:relative;overflow:hidden;
 }
 
-/* corner brackets */
 .hero::before,.hero::after{
   content:'';position:absolute;width:80px;height:80px;
   border-color:var(--teal);border-style:solid;opacity:0.3;
@@ -92,7 +87,6 @@ nav{
 
 .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
 
-/* prompt line */
 .prompt{
   font-size:0.72rem;color:var(--teal2);letter-spacing:0.08em;
   margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;
@@ -163,14 +157,119 @@ nav{
 }
 .btn-sec:hover{color:var(--teal);border-color:var(--teal)}
 
-/* right side — terminal window */
+/* ── RIGHT COLUMN: stacked photo + terminal ── */
+.hero-right{
+  display:flex;flex-direction:column;gap:1.5rem;
+  animation:fadeUp 0.6s 0.25s ease both;
+}
+
+/* ── PHOTO FRAME ── */
+.photo-frame{
+  position:relative;
+  width:100%;
+  display:flex;justify-content:center;
+}
+
+/* corner bracket decoration around photo */
+.photo-frame::before,.photo-frame::after{
+  content:'';position:absolute;width:24px;height:24px;
+  border-color:var(--teal);border-style:solid;opacity:0.6;z-index:2;
+}
+.photo-frame::before{top:-8px;left:calc(50% - 90px);border-width:2px 0 0 2px}
+.photo-frame::after{bottom:-8px;right:calc(50% - 90px);border-width:0 2px 2px 0}
+
+.photo-outer{
+  position:relative;
+  width:170px;height:170px;
+  flex-shrink:0;
+}
+
+/* spinning dashed ring */
+.photo-outer::before{
+  content:'';
+  position:absolute;inset:-6px;
+  border-radius:50%;
+  border:1px dashed rgba(0,245,196,0.4);
+  animation:spin 18s linear infinite;
+}
+
+/* solid teal ring */
+.photo-outer::after{
+  content:'';
+  position:absolute;inset:-2px;
+  border-radius:50%;
+  border:1px solid rgba(0,245,196,0.25);
+}
+
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.photo-inner{
+  width:170px;height:170px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(0,245,196,0.35);
+  position:relative;
+  background:var(--panel);
+}
+
+/* scanline overlay on photo */
+.photo-inner::after{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 3px,
+    rgba(0,0,0,0.12) 3px,rgba(0,0,0,0.12) 4px
+  );
+  pointer-events:none;
+  border-radius:50%;
+}
+
+.photo-inner img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(0.85) contrast(1.05);
+  transition:filter 0.4s;
+}
+.photo-inner:hover img{filter:saturate(1.1) contrast(1.08)}
+
+/* placeholder shown when no img src is set */
+.photo-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0.5rem;
+  color:var(--muted);
+  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
+}
+.photo-placeholder svg{opacity:0.4}
+
+/* status dot */
+.photo-status{
+  position:absolute;bottom:8px;right:8px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--teal);
+  border:2px solid var(--bg);
+  box-shadow:0 0 8px rgba(0,245,196,0.8);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 8px rgba(0,245,196,0.8)}50%{box-shadow:0 0 16px rgba(0,245,196,1)}}
+
+/* label below photo */
+.photo-label{
+  text-align:center;
+  margin-top:0.75rem;
+  font-size:0.6rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;
+}
+.photo-label span{color:var(--teal)}
+
+/* ── TERMINAL ── */
 .hero-terminal{
   background:var(--panel);
   border:1px solid var(--border);
   border-radius:4px;
   box-shadow:var(--glow-lg);
   overflow:hidden;
-  animation:fadeUp 0.6s 0.3s ease both;
 }
 .term-bar{
   background:rgba(0,245,196,0.06);
@@ -184,7 +283,6 @@ nav{
 .term-body{padding:1.5rem;font-size:0.72rem;line-height:2;color:var(--muted)}
 .term-body .tc{color:var(--teal)}.term-body .cy{color:var(--cyan)}.term-body .am{color:var(--amber)}.term-body .mg{color:var(--magenta)}.term-body .wh{color:var(--text)}
 
-/* stats bar */
 .stats-bar{
   display:grid;grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--border);
@@ -208,7 +306,6 @@ nav{
 }
 .stat-key{font-size:0.6rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.3rem}
 
-/* ── SECTIONS ── */
 .sec{padding:6rem 3rem;max-width:1200px;margin:0 auto}
 
 .sec-head{margin-bottom:3.5rem}
@@ -225,10 +322,8 @@ nav{
 }
 .sec-title .acc{color:var(--teal);text-shadow:var(--glow)}
 
-/* full-width stripe sections */
 .stripe{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 
-/* ── EXP ── */
 .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1px;background:var(--border)}
 .exp-card{
   background:var(--panel);padding:2rem;
@@ -248,7 +343,6 @@ nav{
 .exp-li li{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-bottom:0.3rem;padding-left:1.2rem;position:relative}
 .exp-li li::before{content:'//';position:absolute;left:0;color:var(--teal);font-size:0.6rem}
 
-/* ── PROJECTS ── */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.25rem}
 .proj-card{
   background:var(--panel);
@@ -276,7 +370,6 @@ nav{
 }
 .chip:hover{background:rgba(0,245,196,0.15)}
 
-/* ── SKILLS ── */
 .skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border)}
 .sk-cell{background:var(--panel);padding:1.5rem 1.75rem;transition:background 0.2s}
 .sk-cell:hover{background:rgba(0,245,196,0.04)}
@@ -290,7 +383,6 @@ nav{
 }
 .sk-cell:hover .sk-tag{border-color:rgba(0,245,196,0.3);color:var(--text)}
 
-/* ── CERTS ── */
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border)}
 .cert-cell{
   background:var(--panel);padding:1.5rem;
@@ -307,7 +399,6 @@ nav{
 .cert-iss{font-size:0.58rem;color:var(--amber);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}
 .cert-nm{font-size:0.72rem;color:var(--muted);line-height:1.4}
 
-/* ── LEADERSHIP ── */
 .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
 .lead-card{
   background:var(--panel);border:1px solid var(--border);
@@ -326,7 +417,6 @@ nav{
 .lead-t{font-family:'Rajdhani',sans-serif;font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;letter-spacing:0.05em}
 .lead-d{font-size:0.68rem;color:var(--muted);line-height:1.6}
 
-/* ── CONTACT ── */
 .contact-wrap{
   max-width:800px;margin:0 auto;
   text-align:center;
@@ -373,7 +463,6 @@ footer{
 }
 footer .tc{color:var(--teal)}
 
-/* ── GLITCH ── */
 @keyframes glitch{
   0%{clip-path:inset(0 0 98% 0);transform:translateX(-2px)}
   10%{clip-path:inset(40% 0 50% 0);transform:translateX(2px)}
@@ -392,7 +481,6 @@ footer .tc{color:var(--teal)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 
 .reveal{opacity:0;transform:translateY(24px);transition:all 0.55s cubic-bezier(.23,1,.32,1)}
 .reveal.vis{opacity:1;transform:translateY(0)}
@@ -409,6 +497,8 @@ footer .tc{color:var(--teal)}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .sec{padding:4rem 1.25rem}
   .contact-wrap{padding:4rem 1.25rem}
+  .photo-frame::before{left:calc(50% - 80px)}
+  .photo-frame::after{right:calc(50% - 80px)}
 }
 </style>
 </head>
@@ -457,33 +547,67 @@ footer .tc{color:var(--teal)}
       </div>
     </div>
 
-    <div class="hero-terminal">
-      <div class="term-bar">
-        <div class="term-dot r"></div>
-        <div class="term-dot y"></div>
-        <div class="term-dot g"></div>
-        <div class="term-title">system_info.sh</div>
+    <!-- RIGHT COLUMN: Photo + Terminal stacked -->
+    <div class="hero-right">
+
+      <!-- ── PHOTO SECTION ── -->
+      <div class="photo-frame">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="photo-outer">
+            <div class="photo-inner" id="photoInner">
+              <!--
+                ╔══════════════════════════════════════════╗
+                ║  REPLACE src="" WITH YOUR PHOTO URL      ║
+                ║  e.g. src="./photo.jpg"                  ║
+                ║  or   src="https://..."                  ║
+                ╚══════════════════════════════════════════╝
+              -->
+              <img src="" alt="Sri Harshini" id="profilePhoto" onerror="this.style.display='none';document.getElementById('placeholder').style.display='flex'">
+              <div class="photo-placeholder" id="placeholder" style="display:flex">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>your photo here</span>
+              </div>
+            </div>
+            <div class="photo-status"></div>
+          </div>
+          <div class="photo-label">
+            <span>//</span> sri_harshini.jpg <span>· available</span>
+          </div>
+        </div>
       </div>
-      <div class="term-body">
-        <div><span class="tc">$</span> cat profile.json</div>
-        <div>&nbsp;</div>
-        <div><span class="tc">{</span></div>
-        <div>&nbsp;&nbsp;<span class="cy">"name"</span>: <span class="wh">"Sri Harshini"</span>,</div>
-        <div>&nbsp;&nbsp;<span class="cy">"role"</span>: <span class="wh">"AI/ML Engineer"</span>,</div>
-        <div>&nbsp;&nbsp;<span class="cy">"location"</span>: <span class="am">"Visakhapatnam"</span>,</div>
-        <div>&nbsp;&nbsp;<span class="cy">"cgpa"</span>: <span class="mg">8.3</span>,</div>
-        <div>&nbsp;&nbsp;<span class="cy">"internships"</span>: <span class="mg">3</span>,</div>
-        <div>&nbsp;&nbsp;<span class="cy">"specialization"</span>: [</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"ComputerVision"</span>,</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"GenerativeAI"</span>,</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"DeepLearning"</span></div>
-        <div>&nbsp;&nbsp;],</div>
-        <div>&nbsp;&nbsp;<span class="cy">"available"</span>: <span class="tc">true</span></div>
-        <div><span class="tc">}</span></div>
-        <div>&nbsp;</div>
-        <div><span class="tc">$</span> <span class="wh">_</span><span class="tc" style="animation:blink 1s step-end infinite;display:inline-block">▋</span></div>
+
+      <!-- ── TERMINAL ── -->
+      <div class="hero-terminal">
+        <div class="term-bar">
+          <div class="term-dot r"></div>
+          <div class="term-dot y"></div>
+          <div class="term-dot g"></div>
+          <div class="term-title">system_info.sh</div>
+        </div>
+        <div class="term-body">
+          <div><span class="tc">$</span> cat profile.json</div>
+          <div>&nbsp;</div>
+          <div><span class="tc">{</span></div>
+          <div>&nbsp;&nbsp;<span class="cy">"name"</span>: <span class="wh">"Sri Harshini"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="cy">"location"</span>: <span class="am">"Visakhapatnam"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="cy">"cgpa"</span>: <span class="mg">8.3</span>,</div>
+          <div>&nbsp;&nbsp;<span class="cy">"internships"</span>: <span class="mg">3</span>,</div>
+          <div>&nbsp;&nbsp;<span class="cy">"specialization"</span>: [</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"ComputerVision"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"GenerativeAI"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wh">"DeepLearning"</span></div>
+          <div>&nbsp;&nbsp;],</div>
+          <div>&nbsp;&nbsp;<span class="cy">"available"</span>: <span class="tc">true</span></div>
+          <div><span class="tc">}</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tc">$</span> <span class="wh">_</span><span class="tc" style="animation:blink 1s step-end infinite;display:inline-block">▋</span></div>
+        </div>
       </div>
-    </div>
+
+    </div><!-- /hero-right -->
   </div>
 </section>
 
@@ -720,6 +844,14 @@ document.querySelectorAll('.exp-card,.proj-card,.cert-cell,.lead-card,.sk-cell')
 // Typed effect in terminal
 const lines=document.querySelectorAll('.term-body div');
 lines.forEach((l,i)=>{l.style.opacity='0';l.style.animation=`fadeUp 0.3s ${i*0.08}s ease both`});
+
+// Show placeholder if no photo src
+const img = document.getElementById('profilePhoto');
+const placeholder = document.getElementById('placeholder');
+if (!img.src || img.src === window.location.href) {
+  img.style.display = 'none';
+  placeholder.style.display = 'flex';
+}
 </script>
 </body>
 </html>
